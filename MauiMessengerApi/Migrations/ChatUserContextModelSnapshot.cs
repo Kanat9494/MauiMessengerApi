@@ -22,7 +22,7 @@ namespace MauiMessengerApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MauiMessengerApi.Models.User", b =>
+            modelBuilder.Entity("MauiMessengerApi.Models.ChatUser", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace MauiMessengerApi.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("ChatUsers");
                 });
 #pragma warning restore 612, 618
         }

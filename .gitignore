@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MauiMessengerApi/Migrations/20221207105836_changednamedb.Designer.cs
+/MauiMessengerApi/Migrations/20221207105836_changednamedb.cs

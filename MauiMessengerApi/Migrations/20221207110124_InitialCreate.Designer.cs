@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MauiMessengerApi.Migrations
 {
     [DbContext(typeof(ChatUserContext))]
-    [Migration("20221207104051_InitialCreate")]
+    [Migration("20221207110124_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace MauiMessengerApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MauiMessengerApi.Models.User", b =>
+            modelBuilder.Entity("MauiMessengerApi.Models.ChatUser", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace MauiMessengerApi.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("ChatUsers");
                 });
 #pragma warning restore 612, 618
         }
