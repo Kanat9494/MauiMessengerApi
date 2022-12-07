@@ -19,7 +19,7 @@ public class UserFunction : IUserFunction
             var user = _chatUserContext.ChatUsers.FirstOrDefault(x => x.PhoneNumber == phoneNumber);
             if (user == null) return null;
 
-            var isPasswordMatched = VerifyPassword(password, user.StoreSalt, user.Password);
+            var isPasswordMatched = VerifyPassword(password, user.StoredSalt, user.Password);
             if (!isPasswordMatched) return null;
 
             var token = GenerateJwtToken(user);
