@@ -39,7 +39,17 @@ public class UserFunction : IUserFunction
 
     public UserDTO GetUserById(int userId)
     {
-        throw new NotImplementedException();
+        var user = _chatUserContext.ChatUsers.FirstOrDefault(x => x.UserId == userId);
+
+        return new UserDTO
+        {
+            PhoneNumber = user.PhoneNumber,
+            UserId = user.UserId,
+            AvatarSourceName = user.AvatarSourceName,
+            AwayDuration = "",
+            IsOnline = user.IsOnline,
+            LastLogonTime = user.LastLogonTime,
+        };
     }
 
     private bool VerifyPassword(string enteredPassword, byte[] storedSalt, string storedPassword)

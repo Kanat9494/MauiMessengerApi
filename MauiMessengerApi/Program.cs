@@ -13,6 +13,9 @@ builder.Services.AddDbContext<ChatUserContext>(options =>
 });
 
 builder.Services.AddTransient<IUserFunction, UserFunction>();
+builder.Services.AddTransient<IUserFriendService, UserFriendService>();
+builder.Services.AddTransient<IMessageFunction, MessageFunction>();
+
 
 var app = builder.Build();
 
@@ -24,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+app.UseMiddleware<JwtMiddleware>();
 
 app.MapControllers();
 
