@@ -61,7 +61,7 @@ public class UserFunction : IUserFunction
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new[] { new Claim("UserId", user.UserId.ToString()) }),
-            Expires = DateTime.Now.AddMinutes(1),
+            Expires = DateTime.Now.AddDays(1),
             SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
         };
 
