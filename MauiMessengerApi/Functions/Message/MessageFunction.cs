@@ -40,4 +40,9 @@ public class MessageFunction : IMessageFunction
 
         return result;
     }
+
+    public async Task<IEnumerable<MessageResponse>> GetMessages(int fromUserId, int toUserId)
+    {
+        var messages = await _chatUserContext.Messages.Where(x => (x.FromUserId == fromUserid))
+    }
 }

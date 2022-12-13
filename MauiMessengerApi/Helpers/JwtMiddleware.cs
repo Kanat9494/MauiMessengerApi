@@ -24,7 +24,12 @@ public class JwtMiddleware
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = AuthOptions.GetSymmetricSecurityKey();
-            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            string validToken = "";
+            if (token.StartsWith("Bearer"))
+                validToken = token.Substring(6);
+            else
+                validToken = token;
+            tokenHandler.ValidateToken(validToken, new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = key,
