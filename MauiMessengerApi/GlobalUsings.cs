@@ -12,7 +12,5 @@ global using MauiMessengerApi.Helpers;
 global using MauiMessengerApi.Functions.UserFriend;
 global using MauiMessengerApi.Functions.Message;
 global using MauiMessengerApi.Models.DTOs.Responses;
-
-
-
+global using MauiMessengerApi.Models.DTOs.Requests;
 

@@ -43,6 +43,19 @@ public class MessageFunction : IMessageFunction
 
     public async Task<IEnumerable<MessageResponse>> GetMessages(int fromUserId, int toUserId)
     {
-        var messages = await _chatUserContext.Messages.Where(x => (x.FromUserId == fromUserid))
+        var messages = await _chatUserContext.Messages.
+            Where(x => (x.FromUserId == fromUserId && x.ToUserId == toUserId)
+            || (x.FromUserId == fromUserId && x.ToUserId == toUserId))
+            .OrderBy(x => x.SentDateTime).ToListAsync();
+
+        return messages.Select(x => new MessageResponse
+        {
+            MessageId = x.MessageId,
+            Content = x.Content,
+            FromUserId = x.FromUserId,
+            ToUserId = x.ToUserId,
+            SentDateTime = x.SentDateTime,
+            IsRead = x.IsRead,
+        });
     }
 }
