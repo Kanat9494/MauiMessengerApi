@@ -13,4 +13,7 @@ global using MauiMessengerApi.Functions.UserFriend;
 global using MauiMessengerApi.Functions.Message;
 global using MauiMessengerApi.Models.DTOs.Responses;
 global using MauiMessengerApi.Models.DTOs.Requests;
+global using Microsoft.AspNetCore.SignalR;
+global using MauiMessengerApi.Hubs;
+
 

@@ -11,6 +11,23 @@ public class MessageFunction : IMessageFunction
         _userFunction = userFunction;
     }
 
+    public async Task<int> AddMessage(int fromUserId, int toUserId, string message)
+    {
+        var newMessage = new Models.Message
+        {
+            FromUserId = fromUserId,
+            ToUserId = toUserId,
+            Content = message,
+            SentDateTime = DateTime.Now,
+            IsRead = false
+        };
+
+        _chatUserContext.Messages.Add(newMessage);
+        var result = await _chatUserContext.SaveChangesAsync();
+
+        return result;
+    }
+
     public async Task<IEnumerable<LastestMessage>> GetLastestMessage(int userId)
     {
         var result = new List<LastestMessage>();
